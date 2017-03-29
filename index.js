@@ -1,6 +1,6 @@
 const Discord = require ('discord.js'); 
 const client = new Discord.Client();
-const token = 'Mjk2NTM3ODMyNDMwNzY0MDQ0.C70BqQ.VhGXKjt5as62Up0OQtEwBZl0r5w'
+const token = 'Mjk2NTM3ODMyNDMwNzY0MDQ0.C70BqQ.VhGXKjt5as62Up0OQtEwBZl0r5w';
 
 
 
@@ -15,7 +15,7 @@ client.on ('message', message => {
 		{
 			message.reply ('pong'); 
 		}
-
+		else message.reply ('What ?') ;
 		console.log (message);
 	}	
 	
