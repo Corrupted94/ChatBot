@@ -2,6 +2,8 @@
 const Discord = require ('discord.js'); 
 const client = new Discord.Client();
 
+var Blague = require ('blague.js');
+
 client.on ('ready', () => {
 });
 
@@ -9,10 +11,14 @@ client.on ('message', message => {
 	
 	if (!message.author.bot || message.channel.type == 'dm') 
 	{
-		if (message.content == 'ping') 
+		if (message.content == '!blague') 
 		{
-			message.reply ('pong'); 
+			getBlague (function (t);
+			console.log (t);
+			message.reply(t); 
 		}
+
+		else message.reply ("Je n'ai pas compris votre demande"); 
 		console.log (message);
 	}	
 	
@@ -20,16 +26,17 @@ client.on ('message', message => {
 });
 
 client.on ('presenceUdapte', function (oldMember, newMember) {
+	console.log ("poerfpsdfkpsdof");
 	console.log (oldMember.presence, '=>', newMember.presence);
 	console.log (newMember.user.username);
-	if (newMember.user.username ==  'ProgSK77' && newMember.user.presence == true) 
+	if (newMember.user.username ==  'bramas' && newMember.presence == true) 
 	{
 		newMember.sendMessage ("Bonjour je suis le bot de SU Yiu Quan, que puis-je faire pour vous ?");
 	}
 });
 
 
-client.login('Mjk2NTM3ODMyNDMwNzY0MDQ0.C70oNA.5BFC2OWQpIvGtauQUCCI7wSWkSo'); 
+client.login(process.env.DISCORD_TOKEN); 
 
 
 const serv = require ('./server.js'); 
