@@ -15,7 +15,6 @@ client.on ('message', message => {
 		{
 			message.reply ('pong'); 
 		}
-		else message.reply ('What ?') ;
 		console.log (message);
 	}	
 	
