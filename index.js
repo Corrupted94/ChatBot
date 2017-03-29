@@ -13,9 +13,11 @@ client.on ('message', message => {
 	{
 		if (message.content == '!blague') 
 		{
-			getBlague (function (t));
-			console.log (t);
-			message.reply(t); 
+			getBlague (function (t)
+			{
+				message.reply(t); 
+			});
+			
 		}
 
 		else message.reply ("Je n'ai pas compris votre demande"); 
