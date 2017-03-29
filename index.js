@@ -21,7 +21,7 @@ client.on ('message', message => {
 
 
 
-client.login(process.env.DISCORD_TOKEN); 
+client.login('Mjk2NTM3ODMyNDMwNzY0MDQ0.C70oNA.5BFC2OWQpIvGtauQUCCI7wSWkSo'); 
 
 
 const serv = require ('./server.js'); 
