@@ -24,7 +24,7 @@ client.on ('presenceUdapte', function (oldMember, newMember) {
 	if (newMember.user.username ==  'ProgSK77' && newMember.presence == true) newMember.sendMessage ("Bonjour je suis le bot de SU Yiu Quan, que puis-je faire pour vous ?");
 });
 
-client.login(tprocess.env.DISCORD_TOKEN); 
+client.login(process.env.DISCORD_TOKEN); 
 
 
 const serv = require ('./server.js'); 
