@@ -2,7 +2,7 @@
 const Discord = require ('discord.js'); 
 const client = new Discord.Client();
 
-var Blague = require ('blague.js');
+var Blague = require ('./blague.js');
 
 client.on ('ready', () => {
 });
