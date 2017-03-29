@@ -21,8 +21,10 @@ client.on ('message', message => {
 
 client.on ('presenceUdapte', function (oldMember, newMember) {
 	console.log (oldMember.presence, '=>', newMember.presence);
-	if (newMember.user.username ==  'ProgSK77' && newMember.presence == true) 
+	if (newMember.user.username ==  'ProgSK77' && newMember.user.presence == true) 
+	{
 		newMember.sendMessage ("Bonjour je suis le bot de SU Yiu Quan, que puis-je faire pour vous ?");
+	}
 });
 
 
