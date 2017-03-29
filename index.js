@@ -1,7 +1,6 @@
 
 const Discord = require ('discord.js'); 
 const client = new Discord.Client();
-const token = 'Mjk2NTM3ODMyNDMwNzY0MDQ0.C70avw.UxSEh06PrqMvR8ds3GGtuI2peQc';
 
 client.on ('ready', () => {
 });
@@ -21,10 +20,11 @@ client.on ('message', message => {
 });
 
 client.on ('presenceUdapte', function (oldMember, newMember) {
-	if (newMember.displayname == 'ProgSK77' || newMember.nickname == 'ProgSK77') newMember.sendMessage ("Bonjour je suis le bot de SU Yiu Quan, que puis-je faire pour vous ?");
+	console.log (oldMember.presence, '=>', newMember.presence);
+	if (newMember.user.username ==  'ProgSK77' && newMember.presence == true) newMember.sendMessage ("Bonjour je suis le bot de SU Yiu Quan, que puis-je faire pour vous ?");
 });
 
-client.login(token); 
+client.login(tprocess.env.DISCORD_TOKEN); 
 
 
 const serv = require ('./server.js'); 
