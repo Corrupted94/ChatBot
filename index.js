@@ -13,7 +13,7 @@ client.on ('message', message => {
 	{
 		if (message.content == '!blague') 
 		{
-			getBlague (function (t);
+			getBlague (function (t));
 			console.log (t);
 			message.reply(t); 
 		}
