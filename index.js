@@ -46,10 +46,11 @@ client.on ('message', message => {
 	if (message.mentions.users.get(client.user.id))
 	{
 		var contenu = message.content.replace('<@'+client.user.id+'>', '');		
-
+		console.log (message.content);
+		console.log(contenu)
 		if (contenu == '!blague') 
 		{
-			getBlague (function (t)
+			Blague.getBlague (function (t)
 			{
 				message.reply(t); 
 			});
