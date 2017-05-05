@@ -2,7 +2,21 @@
 const Discord = require ('discord.js'); 
 const client = new Discord.Client();
 
+
+
+/***************Server *********/
+var express = require ('express'); 
+var app = express ();
+
+app.get ('/', function (req, res) { 
+	res.send ('hello world '); 
+});
+
+/* ************************** */
+
 var Blague = require ('./blague.js');
+
+
 
 client.on ('ready', () => {
 });
@@ -20,10 +34,12 @@ client.on ('message', message => {
 			});
 			
 		}
+			
 
 		else message.reply ("Je n'ai pas compris votre demande"); 
 		console.log (message);
-	}	
+	}
+	
 	if (message.mentions.users.get (client.user.id)
 	{
 		var contenu = message.content.replace('<@'+client.user.id+'>', '');		
@@ -43,7 +59,9 @@ client.on ('message', message => {
 	
 });
 
-client.on ('presenceUdapte', function (oldMember, newMember) {
+
+/**********PRESENCE UPDATE *****************/
+client.on ('presenceUpdate', function (oldMember, newMember) {
 	console.log (oldMember.presence, '=>', newMember.presence);
 	console.log ("User : ",newMember.user.username; "Logged in/out");
 	if (newMember.user.username ==  "bramas" && newMember.presence.status == "online") 
@@ -55,10 +73,5 @@ client.on ('presenceUdapte', function (oldMember, newMember) {
 
 client.login(process.env.DISCORD_TOKEN); 
 
-
-const serv = require ('./server.js'); 
-
-
-
-
+app.listen(process.env.PORT || 5000);
 
