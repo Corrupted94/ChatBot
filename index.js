@@ -13,6 +13,54 @@ app.get ('/', function (req, res) {
 	res.send ('hello world '); 
 });
 
+/* ************************** */
+
+
+var Blague = require ('./blague.js');
+
+
+
+client.on ('ready', () => {
+	console.log('Ready');
+});
+
+client.on ('message', message => {
+	if (message.author.bot) return;	
+	
+	if (message.channel.type == 'dm') 
+	{
+		if (message.content == '!blague') 
+		{
+			getBlague (function (t)
+			{
+				message.reply(t); 
+			});
+			
+		}
+			
+
+		else message.reply ("Je n'ai pas compris votre demande"); 
+		console.log (message);
+	}
+	
+	if (message.mentions.users.get(client.user.id))
+	{
+		var contenu = message.content.replace('<@'+client.user.id+'>', '');		
+
+		if (contenu == '!blague') 
+		{
+			getBlague (function (t)
+			{
+				message.reply(t); 
+			});
+			
+		}
+
+		else message.reply ("Je n'ai pas compris votre demande"); 
+		console.log (message);
+	}	
+	
+});
 
 
 
@@ -34,6 +82,8 @@ client.on ('message', message => {
 		else message.reply ('What ?') ;
 		console.log (message);
 	}	
+
+	else if (!message.author.bot  || message.channel.type == '
 	
 	
 });
@@ -51,9 +101,9 @@ client.on ('message', message => {
 client.on ('presenceUpdate', function (oldMember, newMember) {
 	console.log (oldMember.presence, '=>', newMember.presence);
 	//console.log ("User : ",newMember.user.username; "Logged in/out");
-	if (newMember.user.username ==  "ProgSK77" && newMember.presence.status == "online") 
+	if (newMember.user.username ==  "bramas" && newMember.presence.status == "online") 
 	{
-		newMember.sendMessage ("Bonjour je suis le bot de SU Yiu Quan, que puis-je faire pour vous ?");
+		newMember.sendMessage ("Bonjour maitre, je suis le bot de SU Yiu Quan et de SEYDOU Mamouina, que puis-je faire pour vous ?");
 	}
 });
 
