@@ -27,7 +27,7 @@ client.on ('message', message => {
 	
 	if (!message.author.bot || message.channel.type == 'dm') 
 	{
-		if (message.content == 'ping') 
+		if (message.content == '!ping') 
 		{
 			message.reply ('pong'); 
 		}
@@ -51,7 +51,7 @@ client.on ('message', message => {
 client.on ('presenceUpdate', function (oldMember, newMember) {
 	console.log (oldMember.presence, '=>', newMember.presence);
 	//console.log ("User : ",newMember.user.username; "Logged in/out");
-	if (newMember.user.username ==  "bramas" && newMember.presence.status == "online") 
+	if (newMember.user.username ==  "ProgSK77" && newMember.presence.status == "online") 
 	{
 		newMember.sendMessage ("Bonjour je suis le bot de SU Yiu Quan, que puis-je faire pour vous ?");
 	}
