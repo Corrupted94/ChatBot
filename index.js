@@ -40,14 +40,14 @@ client.on ('message', message => {
 			
 
 		else message.reply ("Je n'ai pas compris votre demande"); 
-		console.log (message);
+		//console.log (message);
 	}
 	
 	if (message.mentions.users.get(client.user.id))
 	{
 		var contenu = message.content.replace('<@'+client.user.id+'>', '');		
 		console.log (message.content);
-		console.log(contenu)
+		console.log("CONTENU CONTENU CONTENU" + contenu)
 		if (contenu == '!blague') 
 		{
 			Blague.getBlague (function (t)
@@ -58,7 +58,7 @@ client.on ('message', message => {
 		}
 
 		else message.reply ("Je n'ai pas compris votre demande"); 
-		console.log (message);
+		//console.log (message);
 	}	
 	
 });
