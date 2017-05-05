@@ -68,33 +68,6 @@ client.on ('message', message => {
 
 
 
-client.on ('ready', () => {
-});
-
-client.on ('message', message => {
-	
-	if (!message.author.bot || message.channel.type == 'dm') 
-	{
-		if (message.content == '!ping') 
-		{
-			message.reply ('pong'); 
-		}
-		else message.reply ('What ?') ;
-		console.log (message);
-	}	
-
-	else if (!message.author.bot  || message.channel.type == '
-	
-	
-});
-
-
-
-
-
-
-
-
 
 
 /**********PRESENCE UPDATE *****************/
