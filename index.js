@@ -1,4 +1,5 @@
 
+
 const Discord = require ('discord.js'); 
 const client = new Discord.Client();
 
@@ -12,9 +13,10 @@ app.get ('/', function (req, res) {
 	res.send ('hello world '); 
 });
 
-/* ************************** */
 
-var Blague = require ('./blague.js');
+
+
+
 
 
 
@@ -22,42 +24,27 @@ client.on ('ready', () => {
 });
 
 client.on ('message', message => {
-	if (message.author.bot) return;	
 	
-	if (message.channel.type == 'dm') 
+	if (!message.author.bot || message.channel.type == 'dm') 
 	{
-		if (message.content == '!blague') 
+		if (message.content == 'ping') 
 		{
-			getBlague (function (t)
-			{
-				message.reply(t); 
-			});
-			
+			message.reply ('pong'); 
 		}
-			
-
-		else message.reply ("Je n'ai pas compris votre demande"); 
-		console.log (message);
-	}
-	
-	if (message.mentions.users.get (client.user.id)
-	{
-		var contenu = message.content.replace('<@'+client.user.id+'>', '');		
-
-		if (contenu == '!blague') 
-		{
-			getBlague (function (t)
-			{
-				message.reply(t); 
-			});
-			
-		}
-
-		else message.reply ("Je n'ai pas compris votre demande"); 
+		else message.reply ('What ?') ;
 		console.log (message);
 	}	
 	
+	
 });
+
+
+
+
+
+
+
+
 
 
 /**********PRESENCE UPDATE *****************/
