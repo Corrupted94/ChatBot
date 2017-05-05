@@ -48,7 +48,7 @@ client.on ('message', message => {
 		var contenu = message.content.replace('<@'+client.user.id+'>', '');		
 		console.log (message.content);
 		console.log("CONTENU CONTENU CONTENU" + contenu)
-		if (contenu == '!blague') 
+		if (contenu == ' !blague') 
 		{
 			Blague.getBlague (function (t)
 			{
@@ -57,7 +57,7 @@ client.on ('message', message => {
 			
 		}
 
-		else message.reply ("Je n'ai pas compris votre demande"); 
+		//else message.reply ("Je n'ai pas compris votre demande"); 
 		//console.log (message);
 	}	
 	
