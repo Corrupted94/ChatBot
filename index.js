@@ -50,7 +50,7 @@ client.on ('message', message => {
 /**********PRESENCE UPDATE *****************/
 client.on ('presenceUpdate', function (oldMember, newMember) {
 	console.log (oldMember.presence, '=>', newMember.presence);
-	console.log ("User : ",newMember.username; "Logged in/out");
+	//console.log ("User : ",newMember.user.username; "Logged in/out");
 	if (newMember.user.username ==  "bramas" && newMember.presence.status == "online") 
 	{
 		newMember.sendMessage ("Bonjour je suis le bot de SU Yiu Quan, que puis-je faire pour vous ?");
