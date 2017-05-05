@@ -31,7 +31,7 @@ client.on ('message', message => {
 	{
 		if (message.content == '!blague') 
 		{
-			getBlague (function (t)
+			Blague.getBlague (function (t)
 			{
 				message.reply(t); 
 			});
