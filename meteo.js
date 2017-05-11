@@ -4,9 +4,12 @@ fs = require ('fs');
 const openweatherKEY = "6e687168a3964c4ef8fd164ded0b8620";
 
 
-var cityList;
 
-fs.readFile ('./city.list.json', 'utf8', function (err,data) {
+module.exports = {
+	
+	var cityList;
+
+	fs.readFile ('./city.list.json', 'utf8', function (err,data) {
 
 	if (err) {
 		return console.log(err)
@@ -14,12 +17,9 @@ fs.readFile ('./city.list.json', 'utf8', function (err,data) {
 
 	cityList = JSON.parse (data);
 
-});
+	});
 
 
-
-module.exports = {
-	
 	getWeather : function (callback, city) {
 		
 		for (var citydata in cityList)
