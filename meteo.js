@@ -10,7 +10,7 @@ module.exports = {
 
 	getWeather : function (callback, city) {
 		
-
+	console.log(city);
 		fs.readFile ('./city.list.json', 'utf8', function (err,data) {
 
 			if (err) 
@@ -27,7 +27,7 @@ module.exports = {
 			for (var i = 0; i< cityList.length; i++)
 			{
 		
-				if (cityList[i]["name"].toLowerCase() == city.toLowerCase())
+				if (cityList[i]["name"].toLowerCase() == city)
 				{
 					console.log (cityList[i]["name"] + " " + cityList[i]["country"]);
 			
