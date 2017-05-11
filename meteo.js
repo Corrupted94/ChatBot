@@ -8,7 +8,7 @@ const openweatherKEY = "6e687168a3964c4ef8fd164ded0b8620";
 module.exports = {
 
 
-	getWeather : function (callback, city) {
+	getWeather : city, function (callback) {
 		
 	console.log(city);
 		fs.readFile ('./city.list.json', 'utf8', function (err,data) {
@@ -27,7 +27,7 @@ module.exports = {
 			for (var i = 0; i< cityList.length; i++)
 			{
 		
-				if (cityList[i]["name"].toLowerCase() == city)
+				if (cityList[i]["name"].toLowerCase() == city.toLowerCase())
 				{
 					console.log (cityList[i]["name"] + " " + cityList[i]["country"]);
 			

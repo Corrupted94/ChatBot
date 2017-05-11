@@ -63,7 +63,7 @@ client.on ('message', message => {
 				console.log (city);
 				if (city != "")
 				{
-					Meteo.getWeather (function (data, city)
+					Meteo.getWeather (city, function (data)
 					{
 						message.reply(data);
 					});
