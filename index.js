@@ -38,12 +38,11 @@ client.on ('message', message => {
 		
 	}
 	else return;
-	console.log (messageContent);
 
 	if (messageContent != "")
 	{
 		var contentArray = messageContent.split(' ');
-		if (contentArray.length > 1) //array not empty
+		if (contentArray.length > 0) //array not empty
 		{
 			if (contentArray[0] == "!ping") 
 			{
