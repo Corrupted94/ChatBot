@@ -61,7 +61,7 @@ client.on ('message', message => {
 				contentArray.shift();
 				var city = contentArray.join(' ');
 				console.log (city);
-				if city != ""
+				if (city != "")
 				{
 					Meteo.getWeather (function (data, city)
 					{
