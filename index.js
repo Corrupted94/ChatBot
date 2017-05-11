@@ -61,10 +61,10 @@ client.on ('message', message => {
 				contentArray.shift();
 				var city = contentArray.join(' ');
 				//if city != ""
-				Meteo.getWeather (data, city)
+				Meteo.getWeather (function (data, city)
 				{
 					message.reply(data);
-				}
+				});
 
 			}			
 
