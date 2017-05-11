@@ -15,9 +15,8 @@ app.get ('/', function (req, res) {
 
 /* ************************** */
 
-
 var Blague = require ('./blague.js');
-
+//var Meteo = require ('./meteo.js');
 
 
 client.on ('ready', () => {
@@ -26,40 +25,45 @@ client.on ('ready', () => {
 
 client.on ('message', message => {
 	if (message.author.bot) return;	
-	
-	if (message.channel.type == 'dm') 
-	{
-		if (message.content == '!blague') 
-		{
-			Blague.getBlague (function (t)
-			{
-				message.reply(t); 
-			});
-			
-		}
-			
 
-		else message.reply ("Je n'ai pas compris votre demande"); 
-		//console.log (message);
-	}
-	
+	var messageContent = "";
 	if (message.mentions.users.get(client.user.id))
 	{
-		var contenu = message.content.replace('<@'+client.user.id+'>', '');		
-		console.log (message.content);
-		console.log("CONTENU CONTENU CONTENU" + contenu)
-		if (contenu == ' !blague') 
+		messageContent = message.content.replace('<@'+client.user.id+'> ', '');
+
+	}	
+	else if (message.channel.type == 'dm')
+	{
+		messageContent = message.content;
+	}
+
+
+	if (messageContent != "")
+	{
+		var contentArray = messageContent.split(' ');
+		if (contentArray.length > 1) //array not empty
 		{
-			Blague.getBlague (function (t)
+			if (contentArray[0] == "!ping") 
 			{
-				message.reply(t); 
-			});
+				message.reply("pong");
+			}	
+
+			else if (contentArray [0] == "!blague") 
+			{
+				Blague.getBlague (function (t) 
+				{
+					message.reply(t);
+				});
+			}
 			
+			else message.reply ("Je n'ai pas compris votre demande"); 
 		}
 
-		//else message.reply ("Je n'ai pas compris votre demande"); 
-		//console.log (message);
-	}	
+		else 
+		{
+			console.log ("error");
+		}
+	}
 	
 });
 
