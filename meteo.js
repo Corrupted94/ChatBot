@@ -26,7 +26,7 @@ module.exports = {
 		{
 			if (citydata["name"].toLowerCase() == city.toLowerCase())
 			{
-				axios.get("http://api.openweathermap.org/data/2.5/forecast?id="+ citydata["id"] +"&APPID={"+openweatherKEY+"} ").then (function (rep){ callback( "Temperature demain à " + rep.data[0].name + " : " + rep.data[0].main.[0].temp  ).catch (console.error);
+				axios.get("http://api.openweathermap.org/data/2.5/forecast?id="+ citydata["id"] +"&APPID={"+openweatherKEY+"} ").then (function (rep){ callback( "Temperature demain à " + rep.data[0].name + " : " + rep.data[0].main[0].temp );} ).catch (console.error);
 			
 			}
 
