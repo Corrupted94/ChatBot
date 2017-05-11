@@ -60,11 +60,15 @@ client.on ('message', message => {
 			{
 				contentArray.shift();
 				var city = contentArray.join(' ');
-				//if city != ""
-				Meteo.getWeather (function (data, city)
+				console.log (city);
+				if city != ""
 				{
-					message.reply(data);
-				});
+					Meteo.getWeather (function (data, city)
+					{
+						message.reply(data);
+					});
+				}
+				
 
 			}			
 
