@@ -30,7 +30,7 @@ client.on ('message', message => {
 	if (message.mentions.users.get(client.user.id))
 	{
 		messageContent = message.content.replace('<@'+client.user.id+'> ', '');
-
+		console.log (messageContent);
 	}	
 	else if (message.channel.type == 'dm')
 	{
