@@ -16,7 +16,7 @@ app.get ('/', function (req, res) {
 /* ************************** */
 
 var Blague = require ('./blague.js');
-//var Meteo = require ('./meteo.js');
+var Meteo = require ('./meteo.js');
 
 
 client.on ('ready', () => {
@@ -51,12 +51,26 @@ client.on ('message', message => {
 
 			else if (contentArray [0] == "!blague") 
 			{
-				Blague.getBlague (function (t) 
+				Blague.getBlague (function (data) 
 				{
-					message.reply(t);
+					message.reply(data);
 				});
 			}
-			
+			else if (contentArray [0] == '!meteo')
+			{
+				contentArray.shift();
+				var city = contentArray.join(' ');
+				//if city != ""
+				Meteo.getWeather (data, city)
+				{
+					message.reply(data);
+				}
+
+			}			
+
+
+
+
 			else message.reply ("Je n'ai pas compris votre demande"); 
 		}
 
