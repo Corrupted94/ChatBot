@@ -6,22 +6,25 @@ const openweatherKEY = "6e687168a3964c4ef8fd164ded0b8620";
 
 
 module.exports = {
-	
-	var cityList;
-
-	fs.readFile ('./city.list.json', 'utf8', function (err,data) {
-
-	if (err) {
-		return console.log(err)
-	}
-
-	cityList = JSON.parse (data);
-
-	});
 
 
 	getWeather : function (callback, city) {
 		
+		var cityList;
+	
+		fs.readFile ('./city.list.json', 'utf8', function (err,data) {
+
+		if (err) {
+			return console.log(err)
+		}
+
+		cityList = JSON.parse (data);
+
+		});
+
+
+
+
 		for (var citydata in cityList)
 		{
 			if (citydata["name"].toLowerCase() == city.toLowerCase())
