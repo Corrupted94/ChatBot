@@ -35,7 +35,9 @@ client.on ('message', message => {
 	else if (message.channel.type == 'dm')
 	{
 		messageContent = message.content;
+		console.log (messageContent);
 	}
+	else return;
 
 
 	if (messageContent != "")
