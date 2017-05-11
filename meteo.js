@@ -35,7 +35,7 @@ module.exports = {
 
 					axios.get("http://api.openweathermap.org/data/2.5/weather?id="+ id +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
 					
-					console.log ("Température aujourd'hui à " + rep.data.name + " : " + rep.data.main.temp+ "°C"); 
+					callback ("Température aujourd'hui à " + rep.data.name + " : " + rep.data.main.temp+ "°C"); 
 			
 		
 
