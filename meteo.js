@@ -10,37 +10,58 @@ module.exports = {
 
 	getWeather : function (callback, city) {
 		
-		var cityList;
-	
+
 		fs.readFile ('./city.list.json', 'utf8', function (err,data) {
 
-		if (err) {
-			return console.log(err)
-		}
+			if (err) 
+			{
+				return console.log(err)
+			}
 
-		cityList = JSON.parse (data);
+			cityList = JSON.parse (data);
+
+
+			/***********************************/
+		
+
+			for (var i = 0; i< cityList.length; i++)
+			{
+		
+				if (cityList[i]["name"].toLowerCase() == city.toLowerCase())
+				{
+					console.log (cityList[i]["name"] + " " + cityList[i]["country"]);
+			
+					var id = cityList[i]["id"];
+
+					axios.get("http://api.openweathermap.org/data/2.5/weather?id="+ id +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
+					
+					console.log ("Température aujourd'hui à " + rep.data.name + " : " + rep.data.main.temp+ "°C"); 
+			
+		
+
+					} ).catch (console.error);
+					break;
+				}
+
+				else 
+				{
+			
+					//error
+				}
+		
+
+			}
+
+	
 
 		});
 
 
 
 
-		for (var citydata in cityList)
-		{
-			if (citydata["name"].toLowerCase() == city.toLowerCase())
-			{
-				axios.get("http://api.openweathermap.org/data/2.5/forecast?id="+ citydata["id"] +"&APPID={"+openweatherKEY+"} ").then (function (rep){ callback( "Temperature demain à " + rep.data[0].name + " : " + rep.data[0].main[0].temp );} ).catch (console.error);
-			
-			}
 
-			else 
-			{
 
-				//error
-			}
-		
 
-		}
 	}
 	
 
