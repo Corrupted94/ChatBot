@@ -18,6 +18,7 @@ app.get ('/', function (req, res) {
 var Blague = require ('./blague.js');
 var Meteo = require ('./meteo.js');
 var Image = require ('./image.js');
+var ISS = require ('./iss.js');
 
 
 
@@ -85,6 +86,16 @@ client.on ('message', message => {
 						message.reply(data);
 					}, imageKey);
 				}
+			}	
+			else if  (contentArray [0] == '!iss')	
+			{
+				
+				ISS.getIss (function (data)
+				{
+					message.reply(data);
+					console.log (data);
+				});
+				
 			}	
 
 
