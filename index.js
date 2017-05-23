@@ -17,6 +17,8 @@ app.get ('/', function (req, res) {
 
 var Blague = require ('./blague.js');
 var Meteo = require ('./meteo.js');
+var Image = require ('./image.js');
+
 
 
 client.on ('ready', () => {
@@ -70,12 +72,25 @@ client.on ('message', message => {
 				}
 				
 
-			}			
+			}	
+			else if  (contentArray [0] == '!image')	
+			{
+				contentArray.shift();
+				var imageKey = contentArray.join(' ');
+				
+				if (imageKey != "")
+				{
+					Image.getImage (function (data)
+					{
+						message.reply(data);
+					}, imageKey);
+				}
+			}	
 
 
 
 
-			else message.reply ("Je n'ai pas compris votre demande"); 
+			else message.reply ("Je n'ai pas compris votre demande. !help pour plus d'informations"); 
 		}
 
 		else 
