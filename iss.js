@@ -8,14 +8,21 @@ module.exports=
 	getIss: function (callback) 
 	{
 
-		axios.get("http://staticmap.openstreetmap.de/staticmap.php?center=42.342443403495,129.46352093742&zoom=5&size=400x300&maptype=mapnik&markers=42.342443403495,129.46352093742,ltblu-pushpin", {responseType: 'arraybuffer'}).then(function (rep2) {
+		axios.get("http://api.wheretheiss.at/v1/satellites/25544").then(function(rep1){
+			var long = rep1.data.longitude;
+			var lat = rep1.data.latitude;
+			var url_image = "http://staticmap.openstreetmap.de/staticmap.php?center="+lat+","+long+"&zoom=5&size=400x300&maptype=mapnik&markers="+lat+","+long+",ltblu-pushpin";
+		
+			axios.get(url_image, {responseType: 'arraybuffer'}).then(function (rep2) {
 
-		sharp(rep2.data).overlayWith('./iss.png').toBuffer ().then (function (data) { callback(data);}).catch(console.error);
+		sharp(rep2.data).overlayWith('./iss.png').png().toBuffer ().then (function (data) { callback(data);}).catch(console.error);
 			
 
 
 
-	}).catch (console.error);
+			}).catch (console.error);
+
+		}).catch(console.error);
 	}	
 
 
