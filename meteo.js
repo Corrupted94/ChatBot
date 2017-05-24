@@ -92,7 +92,7 @@ module.exports = {
 					
 						axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + citySplit[1] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
 					
-					callback ("Température aujourd'hui à " + rep.data.city.name + " : " + rep.data.list[0].temp.day + "°C | " + rep.data.list[0].weather[0].main + ", " + rep.data.list[0]..weather[0].description + " et demain : " + rep.data.list[1].temp.day + " °C | " + rep.data.list[1].weather[0].main + ", " + rep.data.list[1].weather[0].description); } ).catch (console.error);
+					callback ("Température aujourd'hui à " + rep.data.city.name + " : " + rep.data.list[0].temp.day + "°C | " + rep.data.list[0].weather[0].main + ", " + rep.data.list[0].weather[0].description + " et demain : " + rep.data.list[1].temp.day + " °C | " + rep.data.list[1].weather[0].main + ", " + rep.data.list[1].weather[0].description); } ).catch (console.error);
 				
 
 					}
