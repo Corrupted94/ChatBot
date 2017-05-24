@@ -7,7 +7,7 @@ const openweatherKEY = "6e687168a3964c4ef8fd164ded0b8620";
 
 module.exports = {
 
-
+/*
 	getWeather : function (callback, newCityValue) {
 		
 
@@ -18,10 +18,10 @@ module.exports = {
 				return console.log(err)
 			}
 
-			cityList = JSON.parse (data);
+			cityList = JSON.parse (data); 
 
 
-			/***********************************/
+			
 		
 
 			for (var i = 0; i< cityList.length; i++)
@@ -46,7 +46,7 @@ module.exports = {
 				else 
 				{
 			
-					//error
+					
 				}
 		
 
@@ -57,7 +57,29 @@ module.exports = {
 		});
 
 
+	}*/
+
+	getWeather : function (callback, cityValue) {
+		var citySplit = cityValue.split (' ');
+
+		if (citySplit.length ==1) // s'il n'y a qu'un élément donc on déduit que c'est le nom de la ville.
+		{
+			axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q= " citySplit[0] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
+					
+					callback ("Température aujourd'hui à " + rep.data.city.name + " : " + rep.data.list[0].temp.day+ "°C | " + rep.data.list[0].main.weather + ", "+ rep.data.list[0].main.description + " et demain : " rep.data.list[1].temp.day + " °C | " + rep.data.list[1].main.weather + ", "+ rep.data.list[1].main.description); 
+			
+		
+
+					} ).catch (console.error);
+		}	
+
+		else (citySplit.length>1);
+		var i =0;
+
+		while (citySplit [i] != 
+
 	}
+		
 	
 
 };

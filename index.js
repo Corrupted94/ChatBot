@@ -19,6 +19,7 @@ var Blague = require ('./blague.js');
 var Meteo = require ('./meteo.js');
 var Image = require ('./image.js');
 var ISS = require ('./iss.js');
+var Help = require ('./help.js');
 
 
 
@@ -96,6 +97,23 @@ client.on ('message', message => {
 				});
 				
 			}	
+			else if (contentArray [0] == '!help')	
+			{
+				contentArray.shift();
+				var helpArg = contentArray.join(' ');
+				if (helpArg != "")
+				{
+					Help.getHelp (function (data)
+					{
+						message.reply(data);
+					}, helpArg);
+
+					Help.getHelpNoArg (function (data)
+					{
+						message.reply(data);
+					});
+				}
+			}
 
 
 
@@ -106,6 +124,7 @@ client.on ('message', message => {
 		else 
 		{
 			console.log ("error");
+			else message.reply ("Pas de commande. !help pour plus d'informations"); 
 		}
 	}
 	

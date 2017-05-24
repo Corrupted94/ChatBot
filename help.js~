@@ -11,7 +11,7 @@ module.exports =
 		
 		else if (arg == "meteo") 
 		{
-			callback ("Cette commande d'afficher les prévisions météo (par défaut pour aujourd'hui et le lendemain) pour une ville donnée. !meteo <nom_ville> ou !meteo zip <zipcode>. L'option  : -d <jour> pour spécifier le jour");
+			callback ("Cette commande d'afficher les prévisions météo (par défaut pour aujourd'hui et le lendemain) pour une ville donnée. !meteo <nom_ville> ou !meteo -zcode <zipcode>. L'option  : -d <jour> pour spécifier le jour");
 		}
 
 		else if (arg == "iss") 
