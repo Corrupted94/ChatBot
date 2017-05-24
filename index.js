@@ -108,6 +108,10 @@ client.on ('message', message => {
 						message.reply(data);
 					}, helpArg);
 
+					
+				}
+				else 
+				{
 					Help.getHelpNoArg (function (data)
 					{
 						message.reply(data);
@@ -117,14 +121,13 @@ client.on ('message', message => {
 
 
 
-
 			else message.reply ("Je n'ai pas compris votre demande. !help pour plus d'informations"); 
 		}
 
 		else 
 		{
 			console.log ("error");
-			else message.reply ("Pas de commande. !help pour plus d'informations"); 
+			message.reply ("Pas de commande. !help pour plus d'informations"); 
 		}
 	}
 	

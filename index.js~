@@ -117,7 +117,6 @@ client.on ('message', message => {
 
 
 
-
 			else message.reply ("Je n'ai pas compris votre demande. !help pour plus d'informations"); 
 		}
 
