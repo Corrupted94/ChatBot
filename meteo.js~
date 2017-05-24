@@ -78,53 +78,29 @@ module.exports = {
 		else if (citySplit.length>1)
 
 		{
-			if (citySplit [0] == 'zip')
+			if (citySplit [0] == 'zip' && citySplit.length == 3)
 			{
-				if (citySplit.length == 2)
-				{
-					if (isNaN (parseInt (citySplit[1])))
-					{
-						callback ("Valeur saisie incorecte. zip :  Integer expected");
-						console.log("Valeur saisie incorecte. zip :  Integer expected");
 				
-					}
-					else {
+				if (isNaN (parseInt (citySplit[1])))
+				{
+					callback ("Valeur saisie incorecte. zip :  Integer expected");
+					console.log("Valeur saisie incorecte. zip :  Integer expected");
+				
+				}
+				else 
+				{
 					
-						axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + citySplit[1] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
+					axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + citySplit[1] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
 					
 					callback ("Température aujourd'hui à " + rep.data.city.name + " : " + rep.data.list[0].temp.day + "°C | " + rep.data.list[0].weather[0].main + ", " + rep.data.list[0].weather[0].description + " et demain : " + rep.data.list[1].temp.day + " °C | " + rep.data.list[1].weather[0].main + ", " + rep.data.list[1].weather[0].description); } ).catch (console.error);
 				
 
-					}
-
+			
 				}
-				else if (citySplit.length > 4)
-				{
-					if (citySplit[2] == '-d')
-					{
-						if (isNaN (parseInt (citySplit[3])))
-						{
-							callback ("Valeur saisie incorecte. -d :  Integer expected");
-							console.log("Valeur saisie incorecte. -d :  Integer expected");
-					
-						}
-						else if (parseInt (citySplit[3])<17 && parseInt (citySplit[3])>0){
-					
-							axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?zip="+ citySplit[1] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
-					
-							callback ("Température dans " + parseInt (citySplit[3])  + " jour(s) à " + rep.data.city.name + " : " + rep.data.list[parseInt (citySplit[3])].temp.day + "°C | " + rep.data.list[parseInt (citySplit[3])].weather[0].main + ", " + rep.data.list[0].weather[0].description ); } ).catch (console.error);
-				
+			}	
 
-						}
-					}
-				}
-				else callback("Saisie incorrecte. !help meteo pour plus d'information"	);		
-			}
-			else 
-			{
-				
-
-			}
+			else callback("Saisie incorrecte. !help meteo pour plus d'information"	);		
+			
 
 		}
 		
