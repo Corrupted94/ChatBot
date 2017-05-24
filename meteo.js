@@ -64,13 +64,13 @@ module.exports = {
 
 		if (citySplit.length ==1) // s'il n'y a qu'un élément donc on déduit que c'est le nom de la ville.
 		{
-			axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q= " citySplit[0] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
+			axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + citySplit[0] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
 					
 					callback ("Température aujourd'hui à " + rep.data.city.name + " : " + rep.data.list[0].temp.day+ "°C | " + rep.data.list[0].main.weather + ", "+ rep.data.list[0].main.description + " et demain : " rep.data.list[1].temp.day + " °C | " + rep.data.list[1].main.weather + ", "+ rep.data.list[1].main.description); 
 			
 		
 
-					} ).catch (console.error);
+					}).catch (console.error);
 		}	
 
 		else if (citySplit.length>1)
@@ -88,7 +88,7 @@ module.exports = {
 					}
 					else {
 					
-						axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?zip=" citySplit[1] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
+						axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + citySplit[1] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
 					
 					callback ("Température aujourd'hui à " + rep.data.city.name + " : " + rep.data.list[0].temp.day+ "°C | " + rep.data.list[0].main.weather + ", "+ rep.data.list[0].main.description + " et demain : " rep.data.list[1].temp.day + " °C | " + rep.data.list[1].main.weather + ", "+ rep.data.list[1].main.description); } ).catch (console.error);
 				
@@ -108,7 +108,7 @@ module.exports = {
 						}
 						else if (parseInt (citySplit[3])<17 && parseInt (citySplit[3])>0){
 					
-							axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?zip=" citySplit[1] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
+							axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?zip="+ citySplit[1] +"&APPID="+openweatherKEY + "&units=metric" ).then (function (rep){ 
 					
 							callback ("Température dans " + parseInt (citySplit[3])  + " jour(s) à " + rep.data.city.name + " : " + rep.data.list[parseInt (citySplit[3])].temp.day+ "°C | " + rep.data.list[parseInt (citySplit[3])].main.weather + ", "+ rep.data.list[0].main.description ); } ).catch (console.error);
 				
