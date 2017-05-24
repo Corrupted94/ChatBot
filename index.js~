@@ -93,7 +93,7 @@ client.on ('message', message => {
 				
 				ISS.getIss (function (data)
 				{
-					message.author.sendFile(data,"png");
+					message.reply(data);
 				});
 				
 			}	
