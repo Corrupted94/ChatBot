@@ -61,9 +61,11 @@ module.exports = {
 
 	getWeather : function (callback, cityValue) {
 		var citySplit = cityValue.split (' ');
-
+		console.log(citySplit.length);
 		if (citySplit.length ==1) // s'il n'y a qu'un élément donc on déduit que c'est le nom de la ville.
 		{
+
+			console.log(citySplit[1]);
 			axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + citySplit[0] +"&APPID="+ openweatherKEY + "&units=metric" ).then (function (rep){ 
 					
 					callback ("Température aujourd'hui à " + rep.data.city.name + " : " + rep.data.list[0].temp.day + "°C | " + rep.data.list[0].main.weather + ", " + rep.data.list[0].main.description + " et demain : " + rep.data.list[1].temp.day + " °C | " + rep.data.list[1].main.weather + ", " + rep.data.list[1].main.description); 
