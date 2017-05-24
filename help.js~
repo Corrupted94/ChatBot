@@ -24,7 +24,7 @@ module.exports =
 		}
 		else callback ("Liste de commandes disponibles : !blague, !meteo, !iss, !image. Pour plus d'informations sur une commande : !help <commande_sans_le_!>");
 		
-	}
+	},
 
 
 	getHelpNoArg : function (callback)
