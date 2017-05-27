@@ -29,16 +29,20 @@ client.on ('ready', () => {
 
 client.on ('message', message => {
 	if (message.author.bot) return;	
+	var isDM = false;
 
 	var messageContent = "";
 	if (message.mentions.users.get(client.user.id))
 	{
-		messageContent = message.content.replace('<@'+client.user.id+'> ', '');
+		messageContent = message.content.replace('<@'+client.user.id+'>', '');
+		if (messageContent [0] == ' ') messageContent [0] = '';
+		isDM = false; 
 		
 	}	
 	else if (message.channel.type == 'dm')
 	{
 		messageContent = message.content;
+		isDM = true;
 		
 	}
 	else return;
@@ -93,7 +97,9 @@ client.on ('message', message => {
 				
 				ISS.getIss (function (data)
 				{
-					message.author.sendFile(data,"png");
+					if (isDM == true)
+						message.author.sendFile(data,"png");
+					else message.channel.sendFile(data,"png");
 				});
 				
 			}	

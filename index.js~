@@ -33,7 +33,8 @@ client.on ('message', message => {
 	var messageContent = "";
 	if (message.mentions.users.get(client.user.id))
 	{
-		messageContent = message.content.replace('<@'+client.user.id+'> ', '');
+		messageContent = message.content.replace('<@'+client.user.id+'>', '');
+		if (messageContent [0] == ' ') messageContent [0] = '';
 		
 	}	
 	else if (message.channel.type == 'dm')
@@ -93,7 +94,7 @@ client.on ('message', message => {
 				
 				ISS.getIss (function (data)
 				{
-					message.reply(data,"png");
+					message.author.sendFile(data,"png");
 				});
 				
 			}	
