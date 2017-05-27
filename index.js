@@ -35,7 +35,7 @@ client.on ('message', message => {
 	if (message.mentions.users.get(client.user.id))
 	{
 		messageContent = message.content.replace('<@'+client.user.id+'>', '');
-		if (messageContent [0] == ' ') messageContent [0] = '';
+		if (messageContent [0] == ' ') messageContent = messageContent.substring (1);
 		isDM = false; 
 		
 	}	

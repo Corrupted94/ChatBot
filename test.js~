@@ -1,0 +1,10 @@
+var msg = "<i> !blague";
+
+
+msg = msg.replace('<i>', '');
+	if (msg [0] == ' ')
+		{
+			 msg [0] = '';
+			console.log(msg + "xx" + msg[0]+ "xx");
+		}
+		
